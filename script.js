@@ -1,61 +1,75 @@
-// Loader
-setTimeout(() => {
-  document.getElementById("loader").style.display = "none";
-}, 2500);
+// LOADER
+setTimeout(()=>{
+ document.getElementById("loader").style.display="none";
+},2000);
 
-// Music
-const music = document.getElementById("bg-music");
-const toggle = document.getElementById("music-toggle");
+// MUSIC
+const music = document.getElementById("music");
+const btn = document.getElementById("musicBtn");
 
-toggle.onclick = () => {
-  if (music.paused) {
-    music.play();
-    toggle.innerText = "🔊";
-  } else {
-    music.pause();
-    toggle.innerText = "🔇";
-  }
+btn.onclick=()=>{
+ if(music.paused){
+  music.play();
+ }else{
+  music.pause();
+ }
 };
 
-// Password
-document.getElementById("secret-btn").onclick = () => {
-  document.getElementById("secret-box").style.display = "block";
+// PASSWORD
+document.getElementById("secretBtn").onclick=()=>{
+ document.getElementById("secretBox").style.display="block";
 };
 
-function unlock() {
-  let pass = document.getElementById("pass").value;
-  if (pass === "404human") {
-    document.getElementById("hidden").style.display = "block";
-  } else {
-    alert("Wrong password");
-  }
+function unlock(){
+ if(document.getElementById("pass").value==="404human"){
+  document.getElementById("hidden").style.display="block";
+ } else alert("Wrong password");
 }
 
-// Cursor
-const cursor = document.getElementById("cursor");
-document.addEventListener("mousemove", e => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
+// THOUGHTS (no backend needed)
+function generateThought(){
+ const thoughts=[
+  "Humans hide pain behind normal behavior.",
+  "Technology sees data, not emotion.",
+  "Silence is the loudest breakdown."
+ ];
+ document.getElementById("thought").innerText =
+  thoughts[Math.floor(Math.random()*thoughts.length)];
+}
+
+// CHART
+new Chart(document.getElementById("chart"),{
+ type:"radar",
+ data:{
+  labels:["Focus","Stress","Clarity"],
+  datasets:[{
+   label:"Mental State",
+   data:[
+    Math.random()*100,
+    Math.random()*100,
+    Math.random()*100
+   ]
+  }]
+ }
 });
 
-// THREE JS
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, innerWidth/innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg') });
+// 3D (NO DOWNLOAD)
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(75,innerWidth/innerHeight,0.1,1000);
+const renderer=new THREE.WebGLRenderer({canvas:document.getElementById("bg")});
+renderer.setSize(innerWidth,innerHeight);
 
-renderer.setSize(innerWidth, innerHeight);
+const geometry=new THREE.IcosahedronGeometry(5,1);
+const material=new THREE.MeshBasicMaterial({wireframe:true});
+const mesh=new THREE.Mesh(geometry,material);
 
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true });
-const torus = new THREE.Mesh(geometry, material);
+scene.add(mesh);
+camera.position.z=15;
 
-scene.add(torus);
-camera.position.z = 30;
-
-function animate() {
-  requestAnimationFrame(animate);
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.005;
-  renderer.render(scene, camera);
+function animate(){
+ requestAnimationFrame(animate);
+ mesh.rotation.x+=0.01;
+ mesh.rotation.y+=0.01;
+ renderer.render(scene,camera);
 }
 animate();
