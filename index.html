@@ -7,73 +7,90 @@
 
 <link rel="stylesheet" href="style.css">
 
-<!-- Three.js CDN -->
+<!-- Three.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
+<!-- LOADER -->
 <div id="loader">
   <h1 class="glitch" data-text="SAYANTAN CHOWDHURY">SAYANTAN CHOWDHURY</h1>
 </div>
 
+<!-- 3D BACKGROUND -->
 <canvas id="bg"></canvas>
 
-<audio id="bg-music" loop>
-  <source src="assets/music.mp3" type="audio/mpeg">
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3" type="audio/mpeg">
 </audio>
+<button id="musicBtn">🔊</button>
 
-<button id="music-toggle">🔊</button>
-
+<!-- HERO -->
 <header>
   <h1 class="hero">SAYANTAN CHOWDHURY</h1>
   <p>CSE student Exploring AI, Development and Human Psychology</p>
 </header>
 
+<!-- ABOUT -->
 <section>
-  <h2>About</h2>
-  <p>
-  Undergraduate at JGEC (2024–2028). Exploring technology + human psychology.
-  Money is survival. Curiosity is purpose.
-  I build to understand humans.
-  </p>
+<h2>About</h2>
+<p>
+Undergraduate at JGEC (2024–2028).  
+Money is survival. Curiosity is purpose.  
+I want to build systems that understand humans.
+</p>
 </section>
 
+<!-- SKILLS -->
 <section>
-  <h2>Skills</h2>
-  <p>C, C++, Java, Python</p>
-  <p>Git, Figma, MongoDB, SQL</p>
+<h2>Skills</h2>
+<p>C, C++, Java, Python</p>
+<p>Git, Figma, MongoDB, SQL</p>
 </section>
 
+<!-- PROJECT -->
 <section>
-  <h2>Project</h2>
-  <a href="https://sayantanchowdhuryofficial.github.io/Medex/" target="_blank">MED-EX</a>
+<h2>Project</h2>
+<a href="https://sayantanchowdhuryofficial.github.io/Medex/" target="_blank">MED-EX</a>
 </section>
 
+<!-- PSYCHOLOGY -->
 <section>
-  <h2>Human x Mind</h2>
-  <p>Humans are breaking silently. I build systems that listen.</p>
+<h2>Human x Mind</h2>
+<p>Humans are breaking silently. Technology ignores it. I won’t.</p>
+<button onclick="generateThought()">Reveal Thought</button>
+<p id="thought"></p>
 </section>
 
+<!-- CHART -->
 <section>
-  <h2>Contact</h2>
-  <p>sayantan.chowdhury.official@gmail.com</p>
-  <a href="https://github.com/sayantanchowdhuryofficial" target="_blank">GitHub</a>
+<h2>Mind Analytics</h2>
+<canvas id="chart"></canvas>
 </section>
 
-<button id="secret-btn">Enter</button>
+<!-- CONTACT -->
+<section>
+<h2>Contact</h2>
+<p>sayantan.chowdhury.official@gmail.com</p>
+<a href="https://github.com/sayantanchowdhuryofficial">GitHub</a>
+</section>
 
-<div id="secret-box">
-  <input type="password" id="pass" placeholder="Enter password">
-  <button onclick="unlock()">Unlock</button>
+<!-- SECRET -->
+<button id="secretBtn">Enter</button>
+<div id="secretBox">
+<input type="password" id="pass" placeholder="Password">
+<button onclick="unlock()">Unlock</button>
 </div>
 
 <div id="hidden">
-  <h2>Hidden Layer</h2>
-  <p>You are not everyone.</p>
+<h2>Hidden Layer</h2>
+<p>You are not everyone.</p>
 </div>
-
-<div id="cursor"></div>
 
 <script src="script.js"></script>
 </body>
