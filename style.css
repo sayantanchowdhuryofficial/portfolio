@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  background: #050505;
+  color: white;
+  font-family: monospace;
+  overflow-x: hidden;
+}
+
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+header {
+  text-align: center;
+  padding: 150px 20px;
+}
+
+.hero {
+  font-size: 3rem;
+  letter-spacing: 5px;
+  transform: perspective(800px) rotateX(20deg);
+}
+
+section {
+  padding: 80px;
+  border-bottom: 1px solid #111;
+}
+
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.glitch {
+  font-size: 2rem;
+  position: relative;
+}
+
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+}
+
+.glitch::before { color: red; left: -2px; }
+.glitch::after { color: blue; left: 2px; }
+
+#music-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+#secret-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+#secret-box {
+  display: none;
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+}
+
+#hidden {
+  display: none;
+  padding: 50px;
+}
+
+#cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
